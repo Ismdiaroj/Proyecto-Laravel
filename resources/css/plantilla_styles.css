@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+body{
+    background-color: grey;
+}
+
+
+
+header{
+    background-color: black;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.1rem 2rem;
+
+    position: sticky;
+    top: 0;
+
+}
+
+nav{
+    display: flex;
+    gap: 1rem;
+}
+
+
+nav a{
+    color: white;
+    text-decoration: none;
+    
+}
+
+a:hover{
+    color: goldenrod;
+}
+
+header img{
+    width: 5rem;
+    height: auto;
+   
+}
+
+.section-main{
+    height: 200vh;
+    width: 100%;
+
+}
