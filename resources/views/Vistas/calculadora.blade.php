@@ -19,6 +19,7 @@
         <table class="table table-dark table-striped">
         
             <tr>
+                <td>ID</td>
                 <td>Alimento</td>
                 <td>Kcalorias (100 gramos)</td>
                 <td>Proteinas</td>
@@ -27,6 +28,7 @@
             </tr>
             @foreach ($alimentos as $alimento)
                 <tr>
+                    <td>{{$alimento->id}}</td>
                     <td>{{$alimento->nombre}}</td>
                     <td>{{$alimento->kcal}}</td>
                     <td>{{$alimento->proteinas}} gramos</td>
@@ -49,16 +51,7 @@
                 @csrf
                 
                 <h1>Añade tus alimentos</h1>
-                {{-- <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Alimento</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Cantidad en gramos</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1">
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Submit</button> --}}
+            
                 
                 <label>
                     Alimento:
@@ -88,6 +81,63 @@
             
             <button class="btn btn-primary" type="submit">Enviar</button>
         </form>
+
+        <form action="{{route('calculadora.update')}}" method="POST" class=" bg-light  col-4 row justify-content-center">
+                
+            @csrf
+            @method('put')
+            
+            <h1>Modificar Datos</h1>
+            
+            <label>
+                ID:
+                <input class="form-control" type="text" name="id">
+            </label><br>
+
+            <label>
+                Alimento:
+                <input class="form-control" type="text" name="nombre">
+            </label><br>
+            
+            <label>
+                kcal:
+                <input class="form-control" type="int" name="kcal">
+            </label><br>
+            
+            <label>
+                Proteinas:
+            <input class="form-control" type="int" name="pro">
+        </label><br>
+        
+        <label>
+            Hidratos:
+            <input class="form-control" type="int" name="hid">
+        </label><br>
+        
+        <label>
+            Azucares:
+            <input class="form-control" type="int" name="azu">
+        </label><br>
+        
+        
+        <button class="btn btn-success" type="submit">Actualizar</button>
+    </form>
+
+    <form action="{{route('calculadora.destroy')}}" method="POST" class=" bg-light  col-4 row justify-content-center">
+                
+        @csrf
+        @method('delete')
+        
+        <h1>Borrar Alimento</h1>
+        
+        <label>
+            ID:
+            <input class="form-control" type="text" name="id">
+        </label><br>
+    
+    
+    <button class="btn btn-danger" type="submit">Borrar</button>
+    </form>
     </div>
 </div>
         

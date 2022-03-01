@@ -47,11 +47,43 @@ class GimnasioController extends Controller
         
         $alimento->save();
 
+        $alimentos = Alimento::all();
         return view('Vistas.calculadora',compact("alimentos"));
     }
 
-   
+    public function update(Request $request){
+        
+        if ($alimento = Alimento::find($request->id)){
 
-   
+            
+            $alimento = new Alimento();
+            
+            $alimento = Alimento::find($request->id);
+            $alimento->nombre = $request->nombre;
+            $alimento->kcal = $request->kcal;
+            $alimento->proteinas = $request->pro;
+            $alimento->hidratos = $request->hid;
+            $alimento->azucares = $request->azu;
+            $alimento->save();
+            
+            $alimentos = Alimento::all();
+            
+            return redirect()->route('calculadora.calculadora',compact("alimentos"));
+        }else{
+            $alimento = new Alimento();
+            $alimentos = Alimento::all();
+            return redirect()->route('calculadora.calculadora',compact("alimentos"));
+        }
+    }
+
+    public function destroy(Request $request){
+        $alimentos = Alimento::all();
+
+        $alimento = new Alimento();
+
+        $alimento = Alimento::find($request->id);
+        $alimento->delete();
+        return redirect()->route('calculadora.calculadora',compact("alimentos"));
+    }
 
 }

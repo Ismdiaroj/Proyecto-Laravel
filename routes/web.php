@@ -23,6 +23,8 @@ Route::get('horarios', [GimnasioController::class,'horario'])->name('horarios.ho
 Route::get('blog', [GimnasioController::class,'blog'])->name('blog.blog');
 Route::get('calculadora', [GimnasioController::class,'calculadora'])->name('calculadora.calculadora');
 Route::post('calculadora',[GimnasioController::class,'store'])->name("calculadora.store");
+Route::put('calculadora/update',[GimnasioController::class,'update'])->name("calculadora.update");
+Route::delete('calculadora/delete',[GimnasioController::class,'destroy'])->name("calculadora.destroy");
 Route::get('alta', [GimnasioController::class,'alta'])->name('alta.alta');
 
 // Route::get()
